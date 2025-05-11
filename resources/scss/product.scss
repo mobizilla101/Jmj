@@ -1,0 +1,22 @@
+.product_attachment_swiper{
+    .swiper-slide{
+        @apply shadow-xl;
+        &[data-selected="true"]{
+            @apply ring-2 ring-blue-400;
+        }
+    }
+}
+
+.specification_container{
+    h3{
+        @apply text-sm font-semibold inline-block w-[20%] text-start;
+    }
+
+    ul{
+        @apply inline-block w-[80%] ps-3;
+    }
+
+    ul>li{
+        @apply  text-sm text-gray-500 inline-block me-8;
+    }
+}

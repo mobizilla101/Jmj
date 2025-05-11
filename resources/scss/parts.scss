@@ -1,0 +1,343 @@
+// Default Positions (Desktop)
+$positions: (
+    1: (
+        top: 50%,
+        left: 80%,
+        width: 18.938rem,
+        height: 24.813rem
+    ),
+    2: (
+        top: 52%,
+        left: 74%,
+        width: 13.771rem,
+        height: 17.84rem
+    ),
+    3: (
+        top: 38%,
+        left: 58%,
+        width: 7.557rem,
+        height: 14.414rem
+    ),
+    4: (
+        top: 30%,
+        left: 50%,
+        width: 8.332rem,
+        height: 11.852rem
+    ),
+    5: (
+        top: 24%,
+        left: 46%,
+        width: 9.09rem,
+        height: 9.049rem
+    ),
+    6: (
+        top: 13%,
+        left: 32%,
+        width: 5.308rem,
+        height: 7.034rem
+    ),
+    7: (
+        top: 28%,
+        left: 22%,
+        width: 3.296rem,
+        height: 3.296rem
+    ),
+    8: (
+        top: 20%,
+        left: 15%,
+        width: 11.852rem,
+        height: 5.009rem
+    ),
+    9: (
+        top: 43%,
+        left: 36%,
+        width: 3.433rem,
+        height: 5.106rem
+    ),
+    10: (
+        top: 60%,
+        left: 38.5%,
+        width: 3.939rem,
+        height: 4.913rem
+    ),
+    11: (
+        top: 48%,
+        left: 28%,
+        width: 3.986rem,
+        height: 4.783rem
+    ),
+    12: (
+        top: 66%,
+        left: 28.5%,
+        width: 4.641rem,
+        height: 2.844rem
+    ),
+    13: (
+        top: 59%,
+        left: 15%,
+        width: 9.243rem,
+        height: 12.281rem
+    ),
+    14: (
+        top: 77%,
+        left: 34%,
+        width: 2.973rem,
+        height: 2.198rem
+    ),
+    15: (
+        top: 20%,
+        left: 87%,
+        width: 3.686rem,
+        height: 3.426rem
+    )
+);
+
+$buttonPostion:(
+    1: (
+        top: -29%,
+        left: 21%,
+    ),
+    2: (
+        top: 103%,
+        left: 69%,
+    ),
+    3: (
+        top: 149%,
+        left: 31%,
+    ),
+    4: (
+        top: -19%,
+        left: 63%,
+    ),
+    5: (
+        top: -53%,
+        left: 27%,
+    ),
+    6: (
+        top: -42%,
+        left: -66%,
+    ),
+    7: (
+        top: -183%,
+        left: -83%,
+    ),
+    8: (
+        top: -115%,
+        left: -12%,
+    ),
+    9: (
+        top: -175%,
+        left: -13%,
+    ),
+    10: (
+        top: 168%,
+        left: 168%,
+    ),
+    11: (
+        top: 292%,
+        left: -40%,
+    ),
+    12: (
+        top: 200%,
+        left: 60%,
+    ),
+    13: (
+        top: 110%,
+        left: -3%,
+    ),
+    14: (
+        top: 244%,
+        left: 108%,
+    ),
+    15: (
+        top: -117%,
+        left: 62%,
+    )
+);
+
+// Mixin to apply positioning dynamically
+@mixin set-position($order) {
+    $pos: map-get($positions, $order);
+    @if $pos {
+        top: map-get($pos, top);
+        left: map-get($pos, left);
+        width: map-get($pos, width);
+        height: map-get($pos, height);
+    }
+}
+
+@mixin set-position-button($order) {
+    $pos: map-get($buttonPostion, $order);
+    @if $pos {
+        top: map-get($pos, top);
+        left: map-get($pos, left);
+    }
+}
+
+.parts__category__wrapper {
+    @apply min-w-[94vw] lg:min-w-[53.31rem]
+        min-h-[80vh]
+        lg:min-h-[36rem]
+        grid
+        bg-white
+        grid-rows-[auto_1fr]
+        py-8
+        px-4
+        gap-6
+        rounded-lg
+        shadow-lg
+        shadow-primary-300;
+
+    // Apply Positions for Desktop
+    .parts__category__animation__wrapper[data-show='1'] {
+        & div img{
+            height: 100%;
+            width: 100%;
+        }
+        & > img, &>div{
+            opacity: 0;
+            position: absolute;
+            translate: -50% -50%;
+        }
+
+        @each $order, $values in $positions {
+            img[data-order='#{$order}'], div[data-order='#{$order}'] {
+                @include set-position($order);
+            }
+        }
+
+        @each $order,$values in $buttonPostion{
+            a[data-order='#{$order}']{
+                @include set-position-button($order);
+            }
+        }
+
+        img[data-order='1'], div[data-order='1'] {
+            opacity: 1;
+            z-index: 10;
+            animation: slideLeft 0.5s ease-in-out forwards;
+        }
+
+        @for $i from 2 through 15 {
+            img[data-order='#{$i}'],div[data-order='#{$i}'] {
+                animation: slideToPositions 0.1s ease-in-out 0.3s forwards;
+            }
+        }
+    }
+
+    // Keyframe Animation for Image 1 Sliding Left
+    @keyframes slideLeft {
+        from {
+            left: 50%;
+            translate: -50% -50%;
+        }
+        to {
+            left: map-get(map-get($positions, 1), left);
+            width: 12.845rem;
+            height: 16.829rem;
+        }
+    }
+
+    @keyframes slideToPositions {
+        from {
+            top: 50%;
+            left: 50%;
+            translate: -50% -50%;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+        to {
+            top: map-get($positions, var(--order), top);
+            left: map-get($positions, var(--order), left);
+            width: map-get($positions, var(--order), width);
+            height: map-get($positions, var(--order), height);
+            opacity: 1;
+        }
+    }
+
+}
+
+$positionsTablet: (
+    1: (top: 53%, left: 81%, width: 12rem, height: 14rem),
+    2: (top: 54%, left: 74%, width: 12rem, height: 14rem),
+    3: (top: 42%, left: 56%, width: 7rem, height: 10rem),
+    4: (top: 37%, left: 48%, width: 7rem, height: 9rem),
+    5: (top: 33%, left: 43%, width: 7rem, height: 7rem),
+    6: (top: 29%, left: 30%, width: 5rem, height: 7rem),
+    7: (top: 31%, left: 21%, width: 3.296rem, height: 3.296rem),
+    8: (top: 26%, left: 13%, width: 10rem, height: 5rem),
+    9: (top: 48%, left: 35%, width: 4rem, height: 5rem),
+    10: (top: 65%, left: 47%, width: 4rem, height: 5rem),
+    11: (top: 51%, left: 25%, width: 4rem, height: 5rem),
+    12: (top: 63%, left: 29%, width: 5rem, height: 3rem),
+    13: (top: 63%, left: 11%, width: 9rem, height: 12rem),
+    14: (top: 71%, left: 33%, width: 3rem, height: 3rem),
+    15: (top: 33%, left: 91%, width: 4rem, height: 3rem)
+);
+
+$buttonPostionTablet: (
+    1: (top: -43%, left: 12%),
+    2: (top: 112%, left: 36%),
+    3: (top: 204%, left: 49%),
+    4: (top: -40%, left: 65%),
+    5: (top: -93%, left: 43%),
+    6: (top: -75%, left: -31%),
+    7: (top: -142%, left: -65%),
+    8: (top: -107%, left: 3%),
+    9: (top: -180%, left: -8%),
+    10: (top: 154%, left: 36%),
+    11: (top: 303%, left: -44%),
+    12: (top: 244%, left: 11%),
+    13: (top: 124%, left: 11%),
+    14: (top: 267%, left: 74%),
+    15: (top: -176%, left: -16%)
+);
+
+@mixin set-position-tablet($order) {
+    $pos: map-get($positionsTablet, $order);
+    @if $pos {
+        top: map-get($pos, top) !important;
+        left: map-get($pos, left) !important;
+        width: map-get($pos, width) !important;
+        height: map-get($pos, height) !important;
+    }
+}
+
+@mixin set-button-position-tablet($order) {
+    $pos: map-get($buttonPostionTablet, $order);
+    @if $pos {
+        top: map-get($pos, top) !important;
+        left: map-get($pos, left) !important;
+    }
+}
+
+// Responsive (Tablet)
+@media (max-width: 1024px) and (min-width: 640px) {
+    .parts__category__animation__wrapper[data-show='1'] {
+
+        @each $order, $values in $positionsTablet {
+            img[data-order='#{$order}'], div[data-order='#{$order}'] {
+                @include set-position-tablet($order);
+            }
+        }
+
+        @each $order,$values in $buttonPostionTablet{
+            a[data-order='#{$order}']{
+                @include set-button-position-tablet($order);
+            }
+        }
+    }
+}
+
+
+// Responsive (Mobile)
+@media (max-width: 639px) {
+    .parts__category__animation__wrapper[data-show='1'] {
+        display: none;
+    }
+}
+
+@import url('./parts_mobile.scss');
+
+@import url('./parts_lines.scss');

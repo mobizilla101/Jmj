@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('./product.scss');
+@import url('./video-slider.scss');
+@import url('./parts.scss');
+
+*{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+[x-cloak] { display: none !important; }
+
+.path {
+    animation: draw 20s infinite;
+    animation-timing-function: linear;
+}
+
+.path-2 {
+    animation: draw 20s infinite;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+}
+
+@keyframes draw {
+    0% {
+    }
+    100% {
+        stroke-dashoffset: 0;
+        stroke-opacity: 1;
+    }
+}
+
+div[id="laravel-notify"]{
+    z-index: 50;
+}
+
+.ai_chat_container{
+    .chatRecord{
+        p {
+            @apply w-fit px-4 py-2 rounded
+        }
+        &:not([data-role='user']){
+            p{
+                @apply bg-gray-400;
+            }
+
+            &::before{
+                content: ' ';
+                @apply -me-1 border-transparent border-l-[1rem] border-l-transparent border-b-[1rem] border-b-gray-400;
+            }
+        }
+
+        &[data-role='user']{
+            p{
+                @apply bg-blue-400 ms-auto;
+            }
+
+            &::after{
+                content: ' ';
+                @apply -ms-1 border-transparent border-r-[1rem] border-r-transparent border-b-[1rem] border-b-blue-400;
+            }
+
+        }
+    }
+}
+
+form[name="partsForm"] {
+    .swiper-slide:has(input:checked) {
+        @apply ring-2 ring-blue-500;
+    }
+}
