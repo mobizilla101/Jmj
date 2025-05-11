@@ -123,31 +123,31 @@
 </x-home-sections>
 
 {{-- Hot machine swiper --}}
-@if($hotMachines->count() > 0 )
-<x-home-sections header="Hot Tools and Machines" class="mb-4 space-y-4">
-    <div class="relative">
-        <div class="swiper hotmachine_swiper_element w-[92vw] sm:w-[85vw] h-72 sm:h-60 !p-[2px]">
-            <div class="swiper-wrapper">
-                @foreach($hotMachines as $hotMachine)
-                    <div class="swiper-slide">
-                        <x-partials._card :product='$hotMachine' :thumbnail="$hotMachine->thumbnail" :title="$hotMachine->title" :url="route('machine.show',$hotMachine)">
-                            <p class="text-sm leading-4 text-gray-700 font-semibold">
-                                @if ( $hotMachine->discount > 0 )
-                                    <span>Rs. {{ $hotMachine->amount - ($hotMachine->amount * $hotMachine->discount / 100) }}</span>
-                                @endif
-                                <span class="@if ($hotMachine->discount > 0) line-through @endif">Rs. {{ $hotMachine->amount }}</span>
-                            </p>
-                        </x-partials._card>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-        <x-eva-arrow-ios-back-outline
-            class="!hidden sm:!flex !w-16 !h-16 swiper-button-prev machine-product-btn-prev
-            !-bottom-16 sm:!bottom-auto !top-auto sm:!top-[50%] !left-0 !right-20 mx-auto sm:!right-auto sm:mx-0"/>
-        <x-eva-arrow-ios-forward-outline
-            class="!hidden sm:!flex !w-16 !h-16 swiper-button-next machine-product-btn-next
-            !-bottom-16 sm:!bottom-auto !top-auto sm:!top-[50%] !left-20 !right-0 mx-auto sm:!left-auto sm:mx-0"/>
-    </div>
-    @endif
-</x-home-sections>
+{{--@if($hotMachines->count() > 0 )--}}
+{{--<x-home-sections header="Hot Tools and Machines" class="mb-4 space-y-4">--}}
+{{--    <div class="relative">--}}
+{{--        <div class="swiper hotmachine_swiper_element w-[92vw] sm:w-[85vw] h-72 sm:h-60 !p-[2px]">--}}
+{{--            <div class="swiper-wrapper">--}}
+{{--                @foreach($hotMachines as $hotMachine)--}}
+{{--                    <div class="swiper-slide">--}}
+{{--                        <x-partials._card :product='$hotMachine' :thumbnail="$hotMachine->thumbnail" :title="$hotMachine->title" :url="route('machine.show',$hotMachine)">--}}
+{{--                            <p class="text-sm leading-4 text-gray-700 font-semibold">--}}
+{{--                                @if ( $hotMachine->discount > 0 )--}}
+{{--                                    <span>Rs. {{ $hotMachine->amount - ($hotMachine->amount * $hotMachine->discount / 100) }}</span>--}}
+{{--                                @endif--}}
+{{--                                <span class="@if ($hotMachine->discount > 0) line-through @endif">Rs. {{ $hotMachine->amount }}</span>--}}
+{{--                            </p>--}}
+{{--                        </x-partials._card>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        <x-eva-arrow-ios-back-outline--}}
+{{--            class="!hidden sm:!flex !w-16 !h-16 swiper-button-prev machine-product-btn-prev--}}
+{{--            !-bottom-16 sm:!bottom-auto !top-auto sm:!top-[50%] !left-0 !right-20 mx-auto sm:!right-auto sm:mx-0"/>--}}
+{{--        <x-eva-arrow-ios-forward-outline--}}
+{{--            class="!hidden sm:!flex !w-16 !h-16 swiper-button-next machine-product-btn-next--}}
+{{--            !-bottom-16 sm:!bottom-auto !top-auto sm:!top-[50%] !left-20 !right-0 mx-auto sm:!left-auto sm:mx-0"/>--}}
+{{--    </div>--}}
+{{--    @endif--}}
+{{--</x-home-sections>--}}

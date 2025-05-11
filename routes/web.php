@@ -88,12 +88,12 @@ Route::controller(\App\Http\Controllers\PartsController::class)->group(function(
 
 Route::get('faq',[\App\Http\Controllers\FaqController::class,'index'])->name('faq');
 
-Route::controller(\App\Http\Controllers\MachineController::class)->group(function(){
-    Route::get('/machine','index')->name('machine');
-    Route::get('/machine/{machinery}/preview','preview')->name('machine.preview');
-    Route::get('/machine/{machinery}','show')->name('machine.show');
-    Route::get('/machine/cart/add/{machinery}/{quantity}','addToCart')->name('machine.cart.add');
-});
+//Route::controller(\App\Http\Controllers\MachineController::class)->group(function(){
+//    Route::get('/machine','index')->name('machine');
+//    Route::get('/machine/{machinery}/preview','preview')->name('machine.preview');
+//    Route::get('/machine/{machinery}','show')->name('machine.show');
+//    Route::get('/machine/cart/add/{machinery}/{quantity}','addToCart')->name('machine.cart.add');
+//});
 
 
 Route::controller(\App\Http\Controllers\AccessoriesController::class)->name('accessories.')->prefix('accessories')->group(function(){
