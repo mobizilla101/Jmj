@@ -10,6 +10,7 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    base:'/',
     resolve: {
         alias: {
             'alpinejs': path.resolve(__dirname, 'node_modules/alpinejs')
