@@ -5,7 +5,7 @@
         <a href="{{ route('home') }}">
             <img src="{{ asset('assets/images/logo-mini.png') }}"
                 alt="Mobizilla"
-                class="w-[6.5rem] h-14" />
+                class="w-[8.5rem] h-14" />
         </a>
 
         {{-- Search Icon --}}
