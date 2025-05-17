@@ -97,13 +97,6 @@
                     type : 'link'
                 },
                 {
-                    name: 'Machine & Tools',
-                    thumbnail: '{{ asset("assets/images/machine.png") }}',
-                    link: '{{ route("machine") }}',
-                    subCategories: [],
-                    type : 'link'
-                },
-                {
                     name: 'Parts',
                     thumbnail: '{{ asset("assets/images/parts.png") }}',
                     link: '{{ route("parts") }}',
