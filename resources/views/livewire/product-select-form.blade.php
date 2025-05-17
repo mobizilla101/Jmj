@@ -8,7 +8,13 @@
         discount: @entangle('discount'),
         total: @entangle('total'),
         hasItem: @entangle('hasItem'),
-        alreadyInCart: @entangle('alreadyInCart')
+        alreadyInCart: @entangle('alreadyInCart'),
+        addToCart:()=>{
+            window.dispatchEvent(new CustomEvent('notify', {
+                detail: { message: 'Item added to the cart', duration: 4000 }
+            }));
+           $wire.addToCart()
+        }
     }"
     >
     <h3 class="block max-w-fit mx-auto px-4 py-1 rounded-md text-xl font-semibold text-center bg-blue-300 mb-2">
@@ -112,16 +118,12 @@
     <!-- Add to Cart -->
     <div class="flex md:flex-col lg:flex-row gap-4" >
         <button
-            x-show="hasItem && !alreadyInCart"
             class="bg-gray-300 hover:bg-blue-300 px-4 py-2 flex items-center gap-2 text-primary-300 rounded-md"
-            x-on:click="$wire.addToCart()"
+            x-on:click="addToCart"
             >
             <x-ionicon-cart-outline class="w-5 h-5"/>
             <p class="hidden xs:block">Add to Cart</p>
         </button>
-        <div x-show="hasItem && alreadyInCart">
-            This item is already in the cart
-        </div>
 @if(isset($settings['contactInformation']['whatsAppNumber']))
         <a class="bg-transparent border border-green-400 px-4 py-2 flex items-center gap-2 text-primary-300 rounded-md
             hover:bg-[#25D366] group"
