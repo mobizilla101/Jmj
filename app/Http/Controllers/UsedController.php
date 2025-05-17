@@ -68,6 +68,7 @@ class UsedController extends Controller
             'quantity'=>1,
         ];
         Cart::addItem($data);
-        return redirect()->back()->with('success','Product added to cart successfully!');
+        session(['success' => 'Product added to cart successfully!']);
+        return back()->with('success','Product added to cart successfully!');
     }
 }

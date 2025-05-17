@@ -52,18 +52,12 @@
 
     <!-- Add to Cart -->
     <div class="flex md:flex-col lg:flex-row gap-4">
-        @if(!\App\Models\Cart::hasInCart($product))
         <a href="{{route('used.add.cart',$product)}}"
             class="bg-gray-300 hover:bg-blue-300 px-4 py-2 flex items-center gap-2 text-primary-300 rounded-md"
             >
             <x-ionicon-cart-outline class="w-5 h-5"/>
             <p class="hidden xs:block">Add to Cart</p>
         </a>
-        @else
-            <div>
-                Item is already in the cart
-            </div>
-            @endif
 
         @php
             $whatsAppMessage = urlencode("Hi,I am intrested in your product\n".route('used.show',$product));

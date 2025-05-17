@@ -38,6 +38,7 @@
 <x-partials._navbar/>
 {{ $slot }}
 <x-partials._footer/>
+<x-notify />
 @filamentScripts
 @stack('models')
 @stack('js')

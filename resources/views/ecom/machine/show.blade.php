@@ -53,7 +53,6 @@
                         </div>
 
                         <div class="flex gap-3 mt-4">
-                            @if(!\App\Models\Cart::hasInCart($machinery))
                                 <a
                                     :href="cartUrl"
                                     class="bg-gray-300 hover:bg-blue-300 px-4 py-2 flex items-center gap-2 text-primary-300 rounded-md"
@@ -61,11 +60,6 @@
                                     <x-ionicon-cart-outline class="w-5 h-5"/>
                                     <p class="hidden xs:block">Add to Cart</p>
                                 </a>
-                            @else
-                                <div>
-                                    Item is already in the cart
-                                </div>
-                            @endif
                             @if(isset($settings['contactInformation']['whatsAppNumber']))
                             <a class="inline-block bg-transparent border border-green-400 px-4 py-2 text-primary-300 rounded-md
                             hover:bg-[#25D366] group"

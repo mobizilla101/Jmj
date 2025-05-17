@@ -38,6 +38,7 @@
 <x-partials._navbar/>
 {{ $slot }}
 <x-partials._footer/>
+<x-notify />
 @livewireScripts
 @stack('models')
 @stack('js')

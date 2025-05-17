@@ -87,6 +87,7 @@ class MachineController extends Controller
             'quantity'=>$quantity,
         ];
         Cart::addItem($data);
-        return redirect()->back()->with('success','Product added to cart successfully!');
+        session(['success' => 'Product added to cart successfully!']);
+        return redirect()->back();
     }
 }

@@ -11,13 +11,12 @@ class CartComponent extends Component
 
     public function mount()
     {
-        $this->updateCount();
+        $this->count = count(Cart::getCartItems());
     }
 
-    public function updateCount()
+    public function pollCartCount()
     {
-        $cartItems = Cart::getCartItems();
-        $this->count = count($cartItems);
+        $this->count = count(Cart::getCartItems());
     }
 
     public function render()

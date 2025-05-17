@@ -9,7 +9,7 @@
     <div class="">
         <x-scrollUp />
         <x-ecom_hero_section />
-{{--        <livewire:ai-chat />--}}
+        <livewire:ai-chat />
         <x-hot_products />
         <x-why-us />
         <x-testimonials />

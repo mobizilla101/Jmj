@@ -92,6 +92,7 @@ class PartsController extends Controller
             'quantity'=>$quantity,
         ];
         Cart::addItem($data);
+        session(['success' => 'Product added to cart successfully!']);
         return redirect()->back()->with('success','Product added to cart successfully!');
     }
 }
