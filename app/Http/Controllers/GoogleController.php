@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
+use Laravel\Socialite\Two\InvalidStateException;
 
 class GoogleController extends Controller
 {
@@ -51,9 +53,14 @@ class GoogleController extends Controller
             auth()->login($existingUser);
             return redirect()->route('home')->with('success', 'Logged in successfully.');
 
-        }catch (\Exception $exception){
-            $responseBody = json_decode($exception->getResponse()->getBody()->getContents());
-            return redirect()->route('login')->withErrors(["externalValidationError"=>$responseBody]);
+        } catch (InvalidStateException $e) {
+            Log::error('Google OAuth Invalid State: ' . $e->getMessage());
+
+            return redirect()->route('login')->withErrors(['error' => 'Something went wrong with Google login. Please try again.']);
+        } catch (\Exception $e) {
+            Log::error('General error during Google login: ' . $e->getMessage());
+
+            return redirect()->route('login')->withErrors(['error' => 'Unexpected error occurred.']);
         }
     }
 
