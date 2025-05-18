@@ -145,7 +145,6 @@ class Cart extends Model
             Sku::class => \App\CartFormatters\SkuFormatter::class,
             SecondhandInventory::class => SecondhandInventoriesFormatter::class,
             Parts::class => \App\CartFormatters\PartsFormatter::class,
-            Machinery::class => \App\CartFormatters\MachineryFormatter::class,
             Accessory::class => AccessoriesFormatter::class
             // Add other item types here
         ];
