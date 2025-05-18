@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\WhyChooseUsResource\Pages;
 use App\Filament\Resources\WhyChooseUsResource\RelationManagers;
 use App\Models\WhyChooseUs;
+use Faker\Core\File;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Textarea;
@@ -35,7 +36,10 @@ class WhyChooseUsResource extends Resource
 
                     TextInput::make('title'),
                     Textarea::make('description'),
-
+                    Forms\Components\FileUpload::make('image')
+                    ->image()
+                    ->imageEditor()
+                    ->directory('whychooseus')
                     ])
             ]);
     }
@@ -44,6 +48,7 @@ class WhyChooseUsResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image'),
                 TextColumn::make('title'),
                 TextColumn::make('description'),
                 Tables\Columns\TextColumn::make('created_at')

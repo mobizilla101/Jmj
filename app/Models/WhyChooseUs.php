@@ -11,7 +11,8 @@ class WhyChooseUs extends Model
     protected $fillable = [
         'title',
         'description',
-        'sort'
+        'sort',
+        'image'
     ];
 
     protected static function boot(){
