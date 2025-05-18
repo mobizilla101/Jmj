@@ -16,7 +16,7 @@
             'icon' => 'assets/images/exchange.gif',
             'route' => 'coming-soon',
             'swiperClass' => 'banner-right-swiper',
-            'type' => 'link'
+            'type' => 'button'
         ],
         [
             'image' => $settings['banners']['first_banner']??[],
@@ -25,7 +25,7 @@
             'icon' => 'assets/images/toolkit.gif',
             'route' => 'coming-soon',
             'swiperClass' => 'banner-left-swiper',
-            'type' => 'link'
+            'type' => 'button'
         ]
     ];
 @endphp
@@ -59,7 +59,7 @@
                     @endforeach
                 </div>
             </div>
-
+            @if($loop->first)
             <div class="h-full w-40 absolute bottom-0 right-0 z-20 flex items-end justify-end">
                 <button type="button"
                 class="me-3 sm:me-5 lg:me-7 mb-4 text-base font-semibold z-30
@@ -70,6 +70,7 @@
                     {{ __($section['action']) }}
                 </button>
             </div>
+                @endif
         </div>
     @else
     {{-- Link Slider --}}
