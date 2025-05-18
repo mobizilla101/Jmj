@@ -4,7 +4,7 @@
         {{-- Logo --}}
         <a href="{{ route('home') }}">
             <img src="{{ asset('assets/images/logo-mini.png') }}"
-                alt="Mobizilla"
+                alt=""
                 class="w-[12rem] h-14" />
         </a>
 
