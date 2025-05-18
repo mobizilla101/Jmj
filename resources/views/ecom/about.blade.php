@@ -13,7 +13,7 @@
                 </article>
                 @endif
                 @if(isset($settings['aboutus']['Image']))
-                <img src="/storage/{{$settings['aboutus']['Image']}}" class="row-start-1 mx-auto lg:mx-0 lg:row-start-auto"  alt="About Us Image"/>
+                <img src="/storage/{{$settings['aboutus']['Image'] ?? ''}}" class="w-[30rem] lg:w-96 aspect-[3/2] mx-auto rounded-lg"  alt="About Us Image"/>
                 @endif
         </div>
         </article>
@@ -21,6 +21,8 @@
         <section class="">
             <x-team class="mb-4 py-2 shadow-lg"/>
         </section>
+
+        <x-why-us />
 
     <section class="text-center text-primary-300 py-12 space-y-4">
         <header class="text-3xl font-bold text-blue-400">Get in Touch</header>
