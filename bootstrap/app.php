@@ -12,12 +12,7 @@ return Application::configure(basePath: dirname(__DIR__))
                 ->prefix('api')
                 ->group(base_path('routes/api.php'));
 
-            Route::domain(config('domain.app'))
-                ->middleware('web')
-                ->group(base_path('routes/app.php'));
-
-            Route::domain(config('domain.ecom'))
-                ->middleware('web')
+            Route::middleware('web')
                 ->group(base_path('routes/web.php'));
             }
     )
