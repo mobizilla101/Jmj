@@ -32,7 +32,7 @@
                 <livewire:product-select-form :filters="$filters" :product="$product" />
             </section>
 
-            <section class="grid grid-rows-2 grid-cols-1 md:grid-rows-1 md:grid-cols-[54%_43%] lg:grid-cols-[58%_39%] gap-5 mb-4">
+            <section class="grid grid-cols-1 md:grid-rows-1 md:grid-cols-[54%_43%] lg:grid-cols-[58%_39%] gap-5 mb-4">
                 <div class="space-y-4">
                     <div>
                         <h3 class="text-xl font-semibold mb-3">Specifications</h3>

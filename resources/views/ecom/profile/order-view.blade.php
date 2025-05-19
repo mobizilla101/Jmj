@@ -22,6 +22,8 @@
             @endphp
             <section class="bg-white p-2 grid gap-4 sm:grid-cols-2 grid-cols-1 mb-4">
                 <header class="text-3xl font-bold text-center underline text-blue-400 sm:col-span-2 mb-4">Order Information</header>
+                <h2 class="col-span-2 font-semibold"><span class="font-semibold text-xl underline mb-3">Order ID:</span><br />
+                    {{$order->id}}</h2>
                 <section>
                     <header class="font-semibold text-xl underline mb-3">
                         Order Date
