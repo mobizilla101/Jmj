@@ -31,7 +31,11 @@ class CheckoutController extends Controller
 
         $cartItems = Cart::getCartItems();
 
-        $subTotal = $cartItems->sum(fn ($cart) => $cart['quantity'] * ($cart['amount'] - ($cart['discount']/100)));
+        $subTotal = $cartItems->sum(function ($cart){
+    $discountedPrice = $cart['amount'] * (1 - ($cart['discount'] / 100));
+        $discountedPrice = max(0, $discountedPrice);
+        return $cart['quantity'] * $discountedPrice;
+    });
         $total =    $subTotal + $this->transportationCost;
 
         $order = Order::create([
@@ -60,7 +64,7 @@ class CheckoutController extends Controller
 
         Cart::clear();
 
-        return redirect()->route('home');
+        return redirect()->route('auth.profile.orders.view',$order->id);
     }
 
     public function cancel()

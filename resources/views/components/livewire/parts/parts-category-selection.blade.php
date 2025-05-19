@@ -30,7 +30,7 @@
                         class="absolute bg-blue-400 text-white py-2 px-4 w-max text-sm rounded-full"
                         data-order="{{$index}}">{{$category_name}}</a>
                     <img src="{{$part['url']}}" alt="{{$index}}" lazy="true"
-                         x-on:click="window.location.href='{{route('parts.category',['model'=>$this->selectedModelId,'category'=>$category_id])}}'"/>
+                         x-on:click="window.location.href='{{route('parts.category',['brand'=>$model->brand_id,'model'=>$this->selectedModelId,'category'=>$category_id])}}'"/>
                 </div>
             @else
                 <img src="{{$part['url']}}" alt="{{$index}}" data-order="{{$index}}" lazy="true"/>
@@ -43,7 +43,7 @@
             @php
                 $index = $key +1;
                 $category = $partsCategories->firstWhere('parts_category', $index);
-                $category_id = $category ? $category->parts_category : null;
+                $category_id = $category ? $category->id : null;
                 $category_name = $category ? $category->name:null
             @endphp
             @if($category)
@@ -51,11 +51,11 @@
                     data-order="{{$index}}">
                     <span data-order="{{$index}}"></span>
                     <a
-                        href="{{route('parts.category',['model'=>$this->selectedModelId,'partsCategories'=>$category_id])}}"
+                        href="{{route('parts.category',['brand'=>$model->brand_id,'model'=>$this->selectedModelId,'category'=>$category_id])}}"
                         class="absolute bg-blue-400 text-white py-2 px-4 w-max text-sm rounded-full"
                         data-order="{{$index}}">{{$category_name}}</a>
                     <img src="{{$part['url']}}" alt="{{$index}}" lazy="true"
-                         x-on:click="window.location.href='{{route('parts.category',['model'=>$this->selectedModelId,'partsCategories'=>$category_id])}}'"/>
+                         x-on:click="window.location.href='{{route('parts.category',['brand'=>$model->brand_id,'model'=>$this->selectedModelId,'category'=>$category_id])}}'"/>
                 </div>
             @else
                 <img src="{{$part['url']}}" alt="{{$index}}" data-order="{{$index}}" lazy="true"/>

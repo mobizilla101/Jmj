@@ -6,6 +6,7 @@ use App\Enum\OrderStatus;
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
 use App\Models\Order;
+use Faker\Provider\Text;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -42,6 +43,7 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
+                Forms\Components\TextInput::make('id')->disabled(),
                 Forms\Components\TextInput::make('orderStatus')
                     ->required()->disabled(),
                 Forms\Components\TextInput::make('transportation_cost')

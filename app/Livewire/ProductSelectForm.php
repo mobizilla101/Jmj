@@ -154,6 +154,8 @@ class ProductSelectForm extends Component
 
         $this->alreadyInCart = true;
 
+        $this->dispatch('cartUpdated');
+
         session()->flash('success', 'Item added to cart!');
     }
     public function render()

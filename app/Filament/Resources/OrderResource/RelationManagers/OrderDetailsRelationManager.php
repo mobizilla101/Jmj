@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Filament\Resources\OrderResource\RelationManagers;
 
 use App\CartFormatters\OrderDetailFormatter;
@@ -28,31 +29,33 @@ class OrderDetailsRelationManager extends RelationManager
             ->columns([
                 Tables\Columns\ImageColumn::make('thumbnail')
                     ->label('Image')
-                    ->getStateUsing(fn ($record) => OrderDetailFormatter::format($record)['img'] ?? null)
-                    ->url(fn ($record) => OrderDetailFormatter::format($record)['img'] ?? null),
+                    ->getStateUsing(fn($record) => OrderDetailFormatter::format($record)['img'] ?? null)
+                    ->url(fn($record) => OrderDetailFormatter::format($record)['img'] ?? null),
 
                 Tables\Columns\TextColumn::make('')
                     ->label('Item Name')
-                    ->getStateUsing(fn ($record) => OrderDetailFormatter::format($record)['model_no'] ?? '-'),
+                    ->getStateUsing(fn($record) => OrderDetailFormatter::format($record)['model_no'] ?? '-'),
                 Tables\Columns\TextColumn::make('storage')
                     ->label('Storage (GB)')
                     ->sortable()
-                    ->getStateUsing(fn ($record) => OrderDetailFormatter::format($record)['storage'] ?? "-")
+                    ->getStateUsing(fn($record) => OrderDetailFormatter::format($record)['storage'] ?? "-")
                 ,
                 Tables\Columns\TextColumn::make('memory')
                     ->label('Memory (GB)')
-                    ->getStateUsing(fn($record)=>OrderDetailFormatter::format($record)['memory'] ?? '-')
+                    ->getStateUsing(fn($record) => OrderDetailFormatter::format($record)['memory'] ?? '-')
                     ->sortable(),
                 Tables\Columns\TextColumn::make('amount')
                     ->numeric()
-                    ->getStateUsing(fn ($record) => OrderDetailFormatter::format($record)['amount'] ?? 0),
+                    ->getStateUsing(fn($record) => OrderDetailFormatter::format($record)['amount'] ?? 0),
                 Tables\Columns\TextColumn::make('quantity')->numeric(),
+                Tables\Columns\TextColumn::make('discount')->numeric()->formatStateUsing(fn($state) => $state . '%'),
+                Tables\Columns\TextColumn::make('total')->label('Total'),
                 Tables\Columns\ColorColumn::make('color')
                     ->label('Color')
                     ->getStateUsing(fn($record) => OrderDetailFormatter::format($record)['color']['color_code'] ?? '#FFFFFF')
                     ->sortable(),
             ])
-            ->filters([ /* Add filters if needed */ ])
+            ->filters([ /* Add filters if needed */])
             ->actions([
 
             ])

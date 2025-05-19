@@ -35,6 +35,7 @@
     @filamentStyles
 </head>
 <body class="grid grid-rows-[auto_1fr_auto] min-h-screen">
+<x-loading />
 <x-partials._navbar/>
 {{ $slot }}
 <x-partials._footer/>

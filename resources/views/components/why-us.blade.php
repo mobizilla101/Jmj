@@ -6,7 +6,7 @@
 <x-home-sections header="Why Choose Us?">
     <section class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-8 xs:px-6 md:px-16">
         @foreach ($data as $dat)
-            <div class="pt-6">
+            <div class="pt-6 {{ $loop->iteration > 2 && (Route::current()->uri() === '/' || Route::current()->uri() === 'home') ? 'hidden sm:block' : '' }}">
                 <div class="relative h-full">
                     @if(isset($dat['image']))
                     <img src="{{asset('storage/'.$dat['image'])}}" alt="" class="absolute -top-6 w-12 h-12 -mb-5 ms-4 text-primary-100 bg-blue-400 p-[0.65rem]"/>

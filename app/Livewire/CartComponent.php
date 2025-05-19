@@ -8,7 +8,7 @@ use Livewire\Component;
 class CartComponent extends Component
 {
     public $count = 0;
-
+    protected $listeners = ['cartUpdated' => 'pollCartCount'];
     public function mount()
     {
         $this->count = count(Cart::getCartItems());

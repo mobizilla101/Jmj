@@ -36,6 +36,7 @@
 </head>
 <body class="overflow-hidden min-h-screen">
 <div class="max-h-screen snap-y snap-mandatory overflow-y-auto overflow-x-hidden">
+    <x-loading />
 <x-partials._navbar/>
 {{ $slot }}
 <x-partials._footer/>

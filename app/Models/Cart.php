@@ -52,6 +52,20 @@ class Cart extends Model
     public static function addItem(array $data)
     {
         if (Auth::check()) {
+            $userId = auth()->id();
+            $existing = self::where('user_id', $userId)
+                ->where('item_id', $data['id'])
+                ->where('item_type', $data['item_type'])
+                ->when(isset($data['extra']), fn($q) => $q->where('extra', $data['extra']))
+                ->first();
+
+            if ($existing) {
+                // Update quantity
+                $existing->increment('quantity', $data['quantity'] ?? 1);
+                return $existing;
+            }
+
+//            $exists = self::where('item_type',$data['item_type'])
             return self::create([
                 'user_id' => auth()->id(),
                 'item_id' => $data['id'],
@@ -145,6 +159,7 @@ class Cart extends Model
             Sku::class => \App\CartFormatters\SkuFormatter::class,
             SecondhandInventory::class => SecondhandInventoriesFormatter::class,
             Parts::class => \App\CartFormatters\PartsFormatter::class,
+            Machinery::class => \App\CartFormatters\MachineryFormatter::class,
             Accessory::class => AccessoriesFormatter::class
             // Add other item types here
         ];

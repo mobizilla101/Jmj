@@ -27,5 +27,15 @@ class OrderDetails extends Model
         return $this->morphTo();
     }
 
+    public function getTotalAttribute(): int
+    {
+        $amount = $this->amount ?? 0;
+        $discount = $this->discount ?? 0;
+        $quantity = $this->quantity ?? 1;
+
+        $discountedPrice = max(0, $amount * (1 - ($discount / 100)));
+
+        return $discountedPrice * $quantity;
+    }
 
 }
