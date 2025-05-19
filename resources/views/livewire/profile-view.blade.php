@@ -18,9 +18,9 @@
                     <span class="text-lg font-semibold text-primary-300">Username:</span>
                     <span class="text-lg text-primary-300">{{ auth()->user()->username }}</span>
                 </div>
-                <div class="flex justify-between items-center flex-wrap">
+                <div class="flex justify-between items-baseline flex-wrap">
                     <span class="text-lg font-semibold text-primary-300">Email:</span>
-                    <span class="text-lg text-primary-300">{{ auth()->user()->email }}</span>
+                    <span class="text-lg text-primary-300 max-w-32 break-words">{{ auth()->user()->email }}</span>
                 </div>
             </div>
 
@@ -34,7 +34,7 @@
                             <button wire:click="set('address','')">Change</button>
                         </div>
                     @else
-                        <input type="text" wire:model="address" class="border rounded p-2 text-lg" placeholder="Enter address">
+                        <input type="text" wire:model="address" class="w-full border rounded p-2 text-lg" placeholder="Enter address">
                     @endif
                 </div>
             </div>
@@ -49,7 +49,7 @@
                             <button wire:click="set('phone','')">Change</button>
                         </div>
                     @else
-                        <input type="text" wire:model="phone" class="border rounded p-2 text-lg" placeholder="Enter phone number">
+                        <input type="text" wire:model="phone" class="w-full border rounded p-2 text-lg" placeholder="Enter phone number">
                     @endif
                 </div>
             </div>
