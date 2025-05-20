@@ -28,7 +28,7 @@
         <!-- Main Category View or Subcategory View -->
         <div class="flex items-center justify-center gap-6">
             <template x-if="!isInSubCategory">
-                <div class="grid content-center grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="grid content-center grid-cols-2 md:grid-cols-3 gap-6">
                     <template x-for="item in category" :key="item.name">
                         <!-- Render Category Items (only if the type is 'category') -->
                             <div class="cursor-pointer gap-2 flex flex-col items-center justify-center" @click="viewSubCategory(item)">
