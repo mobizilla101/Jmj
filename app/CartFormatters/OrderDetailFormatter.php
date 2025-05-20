@@ -21,7 +21,6 @@ class OrderDetailFormatter
     {
         return [
             Sku::class => SkuFormatter::class,
-            Machinery::class => MachineryFormatter::class,
             Accessory::class => AccessoriesFormatter::class,
             Parts::class => PartsFormatter::class,
             SecondhandInventory::class => SecondhandInventoriesFormatter::class,
