@@ -5,7 +5,7 @@
         <a href="{{ route('home') }}">
             <img src="{{ asset('assets/images/logo-mini.png') }}"
                 alt=""
-                class="w-[12rem] h-14" />
+                class="w-auto h-16" />
         </a>
 
         {{-- Search Icon --}}

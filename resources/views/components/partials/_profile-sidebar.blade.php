@@ -40,7 +40,7 @@ x-bind:class="navbarOpen && 'px-0 md:px-4'">
                 </li>
                 <li>
                     <a href="{{ route('auth.profile.orders') }}" class="text-[#333] text-sm flex items-center hover:text-blue-600 transition-all">
-                        <x-eos-security class="w-6 h-6 !mr-4" x-bind:class="navbarOpen && 'mx-auto md:mx-0'"/>
+                        <x-heroicon-o-document class="w-6 h-6 !mr-4" x-bind:class="navbarOpen && 'mx-auto md:mx-0'"/>
                         <span x-bind:class="navbarOpen && 'hidden md:block'">My Orders</span>
                     </a>
                 </li>
