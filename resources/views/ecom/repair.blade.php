@@ -1,13 +1,13 @@
 <x-ecom-home-layout>
-    <main class="py-6 px-4 mx-auto min-h-[89vh]">
+    <main class="p-0 m-0 w-screen h-screen">
         @if(isset($settings['repair_pdf']))
-            <div class="w-full border shadow rounded overflow-hidden">
+            <div class="w-screen h-screen">
                 <iframe
-                    src="{{ asset('storage/' . $settings['repair_pdf']) }}#toolbar=0"
-                    class="w-full h-full"
-                    style="min-height: 80vh;"
-                    frameborder="0"
+                    src="{{ asset('storage/' . $settings['repair_pdf']) }}#toolbar=0&zoom=125"
+                    class="w-screen h-screen block"
+                    style="border: none;"
                 ></iframe>
+
             </div>
         @endif
     </main>
