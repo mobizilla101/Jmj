@@ -23,9 +23,9 @@
             'mobile_image' => $settings['banners']['first_mobile_banner']??[],
             'action' => 'Repair',
             'icon' => 'assets/images/toolkit.gif',
-            'route' => 'coming-soon',
+            'route' => 'repair',
             'swiperClass' => 'banner-left-swiper',
-            'type' => 'button'
+            'type' => 'link'
         ]
     ];
 @endphp

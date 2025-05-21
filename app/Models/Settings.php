@@ -62,6 +62,7 @@ class Settings extends Model
             'integer' => 'integer',
             'boolean' => 'boolean',
             'double' => 'float',
+            'string' => 'string',
             default => 'string',
         };
 
