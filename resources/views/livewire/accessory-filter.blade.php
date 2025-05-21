@@ -84,9 +84,9 @@
                     <x-partials._card :product='$accessory' :thumbnail="$accessory->thumbnail" :title="$accessory->title" :url="route('accessories.show',$accessory)">
                         <p class="text-sm leading-4 text-gray-700 font-semibold">
                             @if ( $accessory->discount > 0 )
-                                <span>Rs. {{ $accessory->amount - ($accessory->amount * $accessory->discount / 100) }}</span>
+                                <span>{{$settings['currency'] ?? 'Rs '}}. {{ $accessory->amount - ($accessory->amount * $accessory->discount / 100) }}</span>
                             @endif
-                            <span class="@if ($accessory->discount > 0) line-through @endif">Rs. {{ $accessory->amount }}</span>
+                            <span class="@if ($accessory->discount > 0) line-through @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $accessory->amount }}</span>
                         </p>
                     </x-partials._card>
                     @endforeach

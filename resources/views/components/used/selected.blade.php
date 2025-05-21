@@ -43,10 +43,10 @@
         <h4 class="text-base font-semibold mb-1">Price</h4>
         @if ( $product->discount > 0 )
         <p class="inline-block bg-gray-300 px-4 font-semibold text-primary-300">
-            Rs. {{ $product->amount - ($product->amount * $product->discount / 100) }}</p>
+            {{$settings['currency'] ?? 'Rs '}}. {{ $product->amount - ($product->amount * $product->discount / 100) }}</p>
         @endif
         <p class="inline-block bg-gray-300 px-4 font-semibold text-primary-300 @if ($product->discount > 0) line-through @endif">
-            Rs. {{ $product->amount }}</p>
+            {{$settings['currency'] ?? 'Rs '}}. {{ $product->amount }}</p>
         </p>
     </div>
 

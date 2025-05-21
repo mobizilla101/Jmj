@@ -29,11 +29,11 @@
                 <x-product-attachment :product="$parts" />
                 <div class="md:px-8 py-6 space-y-4">
                     <div class="text-xl text-blue-400 font-semibold">
-                        {{-- Rs. {{ $parts->price }} --}}
+                        {{-- {{$settings['currency'] ?? 'Rs '}}. {{ $parts->price }} --}}
                         @if ( $parts->discount > 0 )
-                            <span>Rs. {{ $parts->price - ($parts->price * $parts->discount / 100) }}</span>
+                            <span>{{$settings['currency'] ?? 'Rs '}}. {{ $parts->price - ($parts->price * $parts->discount / 100) }}</span>
                         @endif
-                        <span class="@if ($parts->discount > 0) line-through text-base @endif">Rs. {{ $parts->price }}</span>
+                        <span class="@if ($parts->discount > 0) line-through text-base @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $parts->price }}</span>
                     </div>
 
                     <div x-data="product">

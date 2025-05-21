@@ -57,17 +57,17 @@
                             </td>
                             <td class="px-6 py-4">
                                 <a href="{{route('auth.profile.orders.view',$order)}}" class="cursor-pointer hover:underline">
-                                Rs. {{$order->transportation_cost }}
+                                {{$settings['currency'] ?? 'Rs '}}. {{$order->transportation_cost }}
                                 </a>
                             </td>
                             <td class="px-6 py-4">
                                 <a href="{{route('auth.profile.orders.view',$order)}}" class="cursor-pointer hover:underline">
-                                Rs. {{$order->total}}
+                                {{$settings['currency'] ?? 'Rs '}}. {{$order->total}}
                                 </a>
                             </td>
                             <td class="px-6 py-4">
                                 <a href="{{route('auth.profile.orders.view',$order)}}" class="cursor-pointer hover:underline">
-                                Rs. {{$order->total + $order->transportation_cost}}
+                                {{$settings['currency'] ?? 'Rs '}}. {{$order->total + $order->transportation_cost}}
                                 </a>
                             </td>
                             <td class="px-6 py-4">

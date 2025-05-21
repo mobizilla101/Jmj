@@ -14,5 +14,6 @@ function hasAbility($ability, User $user = null,$canAdminAccess = true):bool
     if ($user->isAdmin()  && $canAdminAccess) {
         return true;
     }
+    
     return $user->hasPermission($ability);
 }

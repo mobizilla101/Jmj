@@ -132,9 +132,9 @@
 
                                 <p class="text-sm leading-4 text-gray-700 font-semibold">
                                     @if ( $secondhandInventory->discount > 0 )
-                                        <span>Rs. {{ $secondhandInventory->amount - ($secondhandInventory->amount * $secondhandInventory->discount / 100) }}</span>
+                                        <span>{{$settings['currency'] ?? 'Rs '}}. {{ $secondhandInventory->amount - ($secondhandInventory->amount * $secondhandInventory->discount / 100) }}</span>
                                     @endif
-                                    <span class="@if ($secondhandInventory->discount > 0) line-through @endif">Rs. {{ $secondhandInventory->amount }}</span>
+                                    <span class="@if ($secondhandInventory->discount > 0) line-through @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $secondhandInventory->amount }}</span>
                                 </p>
                         </x-partials._card>
                     @endforeach

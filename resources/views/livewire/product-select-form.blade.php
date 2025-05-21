@@ -101,10 +101,10 @@
     <!-- Pricing Section -->
     <div class="mb-6" x-show="(total > 0) && hasItem">
         <h4 class="text-base font-semibold mb-1">Price</h4>
-        <p class="inline-block bg-gray-300 px-4 font-semibold text-primary-300">Rs. <span x-text="total"></span></p>
+        <p class="inline-block bg-gray-300 px-4 font-semibold text-primary-300">{{$settings['currency'] ?? 'Rs '}}. <span x-text="total"></span></p>
         <template x-if="discount && discount > 0">
             <p class="inline-block bg-gray-300 px-4 text-primary-300 font-semibold line-through">
-                Rs. <span x-text="subTotal"></span>
+                {{$settings['currency'] ?? 'Rs '}}. <span x-text="subTotal"></span>
             </p>
         </template>
     </div>

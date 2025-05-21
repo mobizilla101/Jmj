@@ -68,7 +68,7 @@ class PartsResource extends Resource
                     Forms\Components\TextInput::make('price')
                         ->required()
                         ->numeric()
-                        ->prefix('Rs. '),
+                        ->prefix('€ '),
                     Forms\Components\TextInput::make('stock')
                         ->required()
                         ->numeric(),

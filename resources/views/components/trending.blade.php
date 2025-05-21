@@ -16,9 +16,9 @@
 
                 <p class="text-sm leading-4 text-gray-700 font-semibold">
                     @if ( $skuDetail->discount > 0 )
-                        <span>Rs. {{ $skuDetail->price - ($skuDetail->price * $skuDetail->discount / 100) }}</span>
+                        <span>{{$settings['currency'] ?? 'Rs '}}. {{ $skuDetail->price - ($skuDetail->price * $skuDetail->discount / 100) }}</span>
                     @endif
-                    <span class="@if ($skuDetail->discount > 0) line-through @endif">Rs. {{ $skuDetail->price }}</span>
+                    <span class="@if ($skuDetail->discount > 0) line-through @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $skuDetail->price }}</span>
                 </p>
             @else
                 <p class="text-sm leading-4 text-gray-500">

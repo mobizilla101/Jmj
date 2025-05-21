@@ -29,9 +29,9 @@
                             {{ $skuDetail['storage'] }}GB Storage</p>
                         <p class="text-[13px] leading-4 text-gray-700 font-semibold">
                             @if ( $skuDetail['discount'] > 0 )
-                                <span>Rs. {{ $skuDetail['price'] - ($skuDetail['price'] * $skuDetail['discount'] / 100) }}</span>
+                                <span>€ {{ $skuDetail['price'] - ($skuDetail['price'] * $skuDetail['discount'] / 100) }}</span>
                             @endif
-                            <span class="@if ($skuDetail['discount'] > 0) line-through @endif">Rs. {{ $skuDetail['price'] }}</span>
+                            <span class="@if ($skuDetail['discount'] > 0) line-through @endif">€ {{ $skuDetail['price'] }}</span>
                         </p>
                     @else
                         <p class="text-sm leading-4 text-gray-500">
@@ -51,9 +51,9 @@
 
                     <p class="text-sm leading-4 text-gray-700 font-semibold">
                         @if ( $hotSecondhand->discount > 0 )
-                            <span>Rs. {{ $hotSecondhand->amount - ($hotSecondhand->amount * $hotSecondhand->discount / 100) }}</span>
+                            <span>€ {{ $hotSecondhand->amount - ($hotSecondhand->amount * $hotSecondhand->discount / 100) }}</span>
                         @endif
-                        <span class="@if ($hotSecondhand->discount > 0) line-through @endif">Rs. {{ $hotSecondhand->amount }}</span>
+                        <span class="@if ($hotSecondhand->discount > 0) line-through @endif">{{ $settings['currency'] ?? "Rs. " }} {{ $hotSecondhand->amount }}</span>
                     </p>
                 </x-partials._card>
             </div>
@@ -73,9 +73,9 @@
                         <x-partials._card :product='$hotAccessory' :thumbnail="$hotAccessory->thumbnail" :title="$hotAccessory->title" :url="route('accessories.show',$hotAccessory)">
                             <p class="text-sm leading-4 text-gray-700 font-semibold">
                                 @if ( $hotAccessory->discount > 0 )
-                                    <span>Rs. {{ $hotAccessory->amount - ($hotAccessory->amount * $hotAccessory->discount / 100) }}</span>
+                                    <span>{{  $settings['currency'] ?? "Rs. "  }} {{ $hotAccessory->amount - ($hotAccessory->amount * $hotAccessory->discount / 100) }}</span>
                                 @endif
-                                <span class="@if ($hotAccessory->discount > 0) line-through @endif">Rs. {{ $hotAccessory->amount }}</span>
+                                <span class="@if ($hotAccessory->discount > 0) line-through @endif">{{  $settings['currency'] ?? "Rs. "  }} {{ $hotAccessory->amount }}</span>
                             </p>
                         </x-partials._card>
                     </div>
@@ -103,7 +103,7 @@
                         <x-partials._card :product='$hotPart' :thumbnail="$hotPart->thumbnail" :title="$hotPart->name" :url="route('parts.show',$hotPart)">
                             <p class="text-sm leading-4 text-gray-700 font-semibold">
                                 @if ( $hotPart->discount > 0 )
-                                    <span>Rs. {{ $hotPart->price - ($hotPart->price * $hotPart->discount / 100) }}</span>
+                                    <span>{{  $settings['currency'] ?? "Rs. "  }} {{ $hotPart->price - ($hotPart->price * $hotPart->discount / 100) }}</span>
                                 @endif
                                 <span class="@if ($hotPart->discount > 0) line-through @endif">Rs. {{ $hotPart->price }}</span>
                             </p>

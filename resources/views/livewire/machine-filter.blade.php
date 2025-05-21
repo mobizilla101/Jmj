@@ -84,9 +84,9 @@
                     <x-partials._card :product='$machinery' :thumbnail="$machinery->thumbnail" :title="$machinery->title" :url="route('machine.show',$machinery)">
                         <p class="text-sm leading-4 text-gray-700 font-semibold">
                             @if ( $machinery->discount > 0 )
-                                <span>Rs. {{ $machinery->amount - ($machinery->amount * $machinery->discount / 100) }}</span>
+                                <span>{{$settings['currency'] ?? 'Rs '}}. {{ $machinery->amount - ($machinery->amount * $machinery->discount / 100) }}</span>
                             @endif
-                            <span class="@if ($machinery->discount > 0) line-through @endif">Rs. {{ $machinery->amount }}</span>
+                            <span class="@if ($machinery->discount > 0) line-through @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $machinery->amount }}</span>
                         </p>
                     </x-partials._card>
                     @endforeach

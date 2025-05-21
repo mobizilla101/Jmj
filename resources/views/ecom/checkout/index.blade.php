@@ -16,8 +16,8 @@
                                 <h3 class="text-sm lg:text-base text-gray-800 font-semibold">{{$cartItem['model_no']}}</h3>
                                 <ul class="text-xs text-gray-800 space-y-1 mt-3">
                                     <li class="flex flex-wrap gap-4">Quantity <span class="ml-auto">{{$cartItem['quantity']}}</span></li>
-                                    <li class="flex flex-wrap gap-4">Per Price <span class="ml-auto">Rs. {{$cartItem['amount']}}</span></li>
-                                    <li class="flex flex-wrap gap-4">Total Price <span class="ml-auto">Rs. {{$cartItem['quantity'] *$cartItem['amount']}}</span></li>
+                                    <li class="flex flex-wrap gap-4">Per Price <span class="ml-auto">{{$settings['currency'] ?? 'Rs '}}. {{$cartItem['amount']}}</span></li>
+                                    <li class="flex flex-wrap gap-4">Total Price <span class="ml-auto">{{$settings['currency'] ?? 'Rs '}}. {{$cartItem['quantity'] *$cartItem['amount']}}</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -26,9 +26,9 @@
                 </div>
 
                 <div class="bg-gray-200 w-full p-4">
-                    <p class="flex flex-wrap gap-4 text-sm lg:text-base font-semibold text-gray-800 mb-2">Sub-Total <span class="ml-auto">Rs. {{$subTotal}}</span></p>
-                    <p class="flex flex-wrap gap-4 text-sm lg:text-base font-semibold text-gray-800 mb-2 pb-6 border-b border-b-gray-600">Transportation Cost <span class="ml-auto">Rs. {{$transportationCost}}</span></p>
-                    <p class="flex flex-wrap gap-4 text-sm lg:text-base font-semibold text-gray-800">Total <span class="ml-auto">Rs. {{$total}}</span></p>
+                    <p class="flex flex-wrap gap-4 text-sm lg:text-base font-semibold text-gray-800 mb-2">Sub-Total <span class="ml-auto">{{$settings['currency'] ?? 'Rs '}}. {{$subTotal}}</span></p>
+                    <p class="flex flex-wrap gap-4 text-sm lg:text-base font-semibold text-gray-800 mb-2 pb-6 border-b border-b-gray-600">Transportation Cost <span class="ml-auto">{{$settings['currency'] ?? 'Rs '}}. {{$transportationCost}}</span></p>
+                    <p class="flex flex-wrap gap-4 text-sm lg:text-base font-semibold text-gray-800">Total <span class="ml-auto">{{$settings['currency'] ?? 'Rs '}}. {{$total}}</span></p>
                 </div>
             </div>
         </div>

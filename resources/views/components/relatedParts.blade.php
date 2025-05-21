@@ -11,9 +11,9 @@
                         :title="$related_product->name" :url="route('parts.show',$related_product)">
                             <p class="text-sm leading-4 text-gray-700 font-semibold">
                                 @if ( $related_product->discount > 0 )
-                                    <span>Rs. {{ $related_product->price - ($related_product->price * $related_product->discount / 100) }}</span>
+                                    <span>{{$settings['currency'] ?? 'Rs '}}. {{ $related_product->price - ($related_product->price * $related_product->discount / 100) }}</span>
                                 @endif
-                                <span class="@if ($related_product->discount > 0) line-through @endif">Rs. {{ $related_product->price }}</span>
+                                <span class="@if ($related_product->discount > 0) line-through @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $related_product->price }}</span>
                             </p>
                     </x-partials._card>
                 </div>

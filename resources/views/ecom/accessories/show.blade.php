@@ -30,9 +30,9 @@
                 <div class="md:px-8 py-6 space-y-4">
                     <div class="text-xl text-blue-400 font-semibold">
                         @if ( $accessory->discount > 0 )
-                            <span>Rs. {{ $accessory->amount - ($accessory->amount * $accessory->discount / 100) }}</span>
+                            <span>{{$settings['currency'] ?? 'Rs '}}. {{ $accessory->amount - ($accessory->amount * $accessory->discount / 100) }}</span>
                         @endif
-                        <span class="@if ($accessory->discount > 0) line-through text-base @endif">Rs. {{ $accessory->amount }}</span>
+                        <span class="@if ($accessory->discount > 0) line-through text-base @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $accessory->amount }}</span>
                     </div>
 
                     <div x-data="product">

@@ -60,7 +60,7 @@
 
                         <div class="ml-auto">
                             <h4 class="text-lg max-sm:text-base font-bold text-gray-800">
-                                Rs. <span x-text="Math.floor(item.amount - (item.discount/100))"></span>
+                                {{$settings['currency'] ?? 'Rs '}}. <span x-text="Math.floor(item.amount - (item.discount/100))"></span>
                             </h4>
 
                             <button type="button"
@@ -90,9 +90,9 @@
             </h3>
 
             <ul class="text-gray-800 mt-6 space-y-3">
-                <li class="flex flex-wrap gap-4 text-sm">Subtotal <span class="ml-auto font-bold">Rs. {{$subTotal}}</span></li>
-                <li class="flex flex-wrap gap-4 text-sm pb-12 border-b border-b-gray-600">Shipping <span class="ml-auto font-bold">Rs. {{$transportationCost}}</span></li>
-                <li class="flex flex-wrap gap-4 text-sm font-bold">Total <span class="ml-auto">Rs. {{$total}}</span></li>
+                <li class="flex flex-wrap gap-4 text-sm">Subtotal <span class="ml-auto font-bold">{{$settings['currency'] ?? 'Rs '}}. {{$subTotal}}</span></li>
+                <li class="flex flex-wrap gap-4 text-sm pb-12 border-b border-b-gray-600">Shipping <span class="ml-auto font-bold">{{$settings['currency'] ?? 'Rs '}}. {{$transportationCost}}</span></li>
+                <li class="flex flex-wrap gap-4 text-sm font-bold">Total <span class="ml-auto">{{$settings['currency'] ?? 'Rs '}}. {{$total}}</span></li>
             </ul>
 
             <div class="mt-6 space-y-3">
