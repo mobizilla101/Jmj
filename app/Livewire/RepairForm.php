@@ -68,11 +68,7 @@ class RepairForm extends Component implements HasForms
             ->title('Success')
             ->body('Repair PDF updated successfully.')
             ->success()
-
             ->send();
-
-        $this->loadDataIntoForm();
-
     }
 
 
