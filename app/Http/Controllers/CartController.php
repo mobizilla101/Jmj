@@ -13,10 +13,14 @@ class CartController extends Controller
         return view('ecom.cart.index');
     }
 
-    public function store(Sku $sku){
-        Cart::create([
-            'user_id'=>auth()->user()->id,
-            'sku_id'=>$sku->id
+    public function store(Request $request,Sku $sku){
+        Cart::addItem([
+            'id'=>$sku->id,
+            'item_type'=>$sku->getMorphClass(),
+            'amount'=>$sku->price,
+            'discount' => $sku->discount,
+            'quantity' => (int) $request->quantity ?? 1,
+            'extra' => []
         ]);
 
         return back()->with(

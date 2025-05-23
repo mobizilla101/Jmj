@@ -36,7 +36,22 @@
                         <span class="@if ($parts->discount > 0) line-through text-base @endif">{{$settings['currency'] ?? 'Rs '}}. {{ $parts->price }}</span>
                     </div>
 
-                    <div x-data="product">
+                    <div x-data="{
+                            quantity: 1,
+                            increase() {
+                                this.quantity++;
+                            },
+                            decrease() {
+                                if (this.quantity > 1) this.quantity--;
+                            },
+                            get cartUrl() {
+                                return `/parts/cart/add/{{$parts->id}}/${this.quantity}`;
+                            },
+                            get whatsappUrl() {
+                                return `https://wa.me/{{$settings['contactInformation']['whatsAppNumber']}}?text=I'm interested in: {{ urlencode($parts->name) }} \n ${window.location.href}`;
+                            }
+                        }
+                    ">
                         <div class="inline-flex items-center ring-2 ring-blue-400 rounded-md overflow-hidden me-4">
                             <button type="button"
                                 @click="decrease"
