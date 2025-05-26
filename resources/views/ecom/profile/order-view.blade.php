@@ -66,7 +66,7 @@
                 </section>
                 <section>
                     <header class="font-semibold text-xl underline mb-3">
-                        Contract Number
+                        Contact Number
                     </header>
                     <p class="font-semibold hover:underline">
                         {{$order->phone}}

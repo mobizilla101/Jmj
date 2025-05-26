@@ -55,8 +55,7 @@
                 <ul class="mt-2 space-y-2">
                     <li><a href="{{ route('home') }}" class="hover:underline">Home</a></li>
                     <li><a href="{{ route('buy') }}" class="hover:underline">Buy</a></li>
-                    <li><a href="{{ route('coming-soon') }}" class="hover:underline">Sell</a></li>
-                    <li><a href="{{ route('coming-soon') }}" class="hover:underline">Repair</a></li>
+                    <li><a href="{{ route('repair') }}" class="hover:underline">Repair</a></li>
                     <li><a href="{{ route('about') }}" class="hover:underline">About Us</a></li>
                     <li><a href="{{ route('blog') }}" class="hover:underline">Blog</a></li>
                     <li><a href="{{ route('services') }}" class="hover:underline">Services</a></li>

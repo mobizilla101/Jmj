@@ -2,7 +2,7 @@
 
 return [
     [
-        'name' => 'Cash On Delicery', // Cash on Delivery
+        'name' => 'Cash On Delivery', // Cash on Delivery
         'enabled' => true, // Toggle to enable/disable this payment method
         'key' => 'cod',
         'description' => 'Pay with cash upon delivery',
