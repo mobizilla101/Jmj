@@ -215,6 +215,7 @@
                             Buy
                         </button>
                     </li>
+                    <li><x-partials._navlink :route="route('repair')" class="flex items-center w-full !py-4 text-primary-300"><x-eva-people-outline class="w-5 me-4"/>Repair</x-partials._navlink></li>
                     <li><x-partials._navlink :route="route('about')" class="flex items-center w-full !py-4 text-primary-300"><x-eva-people-outline class="w-5 me-4"/>About Us</x-partials._navlink></li>
                     <li><x-partials._navlink :route="route('blog')" class="flex items-center w-full !py-4 text-primary-300"><x-hugeicons-pencil-edit-02 class="w-5 me-4"/>Blog</x-partials._navlink></li>
                     <li><x-partials._navlink :route="route('services')" class="flex items-center w-full !py-4 text-primary-300"><x-carbon-service-id class="w-5 me-4"/>Services</x-partials._navlink></li>
@@ -261,6 +262,7 @@
                     >
                     Buy
                 </button></li>
+                <li><x-partials._navlink :route="route('repair')">Repair</x-partials._navlink></li>
             @endif
             <li><x-partials._navlink :route="route('about')">About us</x-partials._navlink></li>
             <li><x-partials._navlink :route="route('blog')">Blog</x-partials._navlink></li>
