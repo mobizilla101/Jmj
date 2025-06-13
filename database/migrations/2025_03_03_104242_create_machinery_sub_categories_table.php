@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('logo')->nullable();
-            $table->unsignedBigInteger('machinery_category_id');
+            $table->unsignedBigInteger('machinery_category_id')->nullable();
             $table->timestamps();
         });
     }
